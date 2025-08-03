@@ -1,0 +1,191 @@
+<nav class="bg-[var(--color-secondary)] text-white relative z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center space-x-8">
+        <a href="/" class="text-xl font-bold text-amber-300">Natural Touch</a>
+
+        <div class="relative hidden md:inline-block w-auto">
+          <button
+            id="services-button"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            class="flex underline items-center hover:text-[var(--color-success)] focus:outline-none"
+          >
+            Menu
+            <svg
+              id="dropdown-tick"
+              class="ml-1 h-4 w-4 stroke-current text-transparent transition-colors"
+              fill="none"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 15l-6-6h12l-6 6z"></path>
+            </svg>
+          </button>
+
+          <div
+            id="services-menu"
+            class="hidden fixed left-0 top-[64px] w-screen bg-[var(--color-accent)] shadow-lg z-40"
+            role="menu"
+          >
+            <div
+              class="max-w-screen-xl mx-auto px-10 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-white"
+            >
+              <nav class="space-y-3">
+                <a
+                  href="/"
+                  class="block px-4 py-3 rounded hover:bg-[var(--color-primary)]"
+                  >Home</a
+                >
+                <a
+                  href="/about"
+                  class="block px-4 py-3 rounded hover:bg-[var(--color-primary)]"
+                  >About</a
+                >
+                <a
+                  href="/contact"
+                  class="block px-4 py-3 rounded hover:bg-[var(--color-primary)]"
+                  >Contact</a
+                >
+              </nav>
+              <address class="not-italic text-sm leading-relaxed">
+                <p class="font-semibold mb-2">Natural Touch</p>
+                <p>123 Main Street</p>
+                <p>City, State ZIP</p>
+                <p>Phone: (123) 456-7890</p>
+              </address>
+              <div class="overflow-hidden rounded">
+                <img
+                  src="/src/images/rain.jpg"
+                  alt="Hero"
+                  class="w-full h-120 md:h-full object-cover rounded"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <footer
+              class="bg-[var(--color-secondary)] border-t border-[var(--color-primary)] text-[var(--color-wait)] text-xs px-10 py-4 w-full"
+            >
+              &copy; 2025 Natural Touch. All rights reserved.
+            </footer>
+          </div>
+        </div>
+        <a href="/" class="hidden md:inline hover:text-[var(--color-success)]"
+          >Home</a
+        >
+        <a
+          href="/about"
+          class="hidden md:inline hover:text-[var(--color-success)]">About</a
+        >
+        <a
+          href="/contact"
+          class="hidden md:inline hover:text-[var(--color-success)]">Contact</a
+        >
+      </div>
+
+      <div class="md:hidden">
+        <button
+          id="menu-button"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          class="focus:outline-none"
+          type="button"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden px-0 pt-2 pb-0 space-y-1 bg-[var(--color-accent)]"
+  >
+    <a href="/" class="block px-3 py-2 rounded hover:bg-[var(--color-primary)]"
+      >Home</a
+    >
+    <a
+      href="/about"
+      class="block px-3 py-2 rounded hover:bg-[var(--color-primary)]">About</a
+    >
+    <a
+      href="/contact"
+      class="block px-3 py-2 rounded hover:bg-[var(--color-primary)]">Contact</a
+    >
+    <address
+      class="not-italic text-sm px-3 py-2 border-t border-[var(--color-primary)] mt-2"
+    >
+      <p class="font-semibold mb-1">Natural Touch</p>
+      <p>123 Main Street</p>
+      <p>City, State ZIP</p>
+      <p>Phone: (123) 456-7890</p>
+    </address>
+    <div class="overflow-hidden rounded mt-2 px-3">
+      <img
+        src="/src/images/rain.jpg"
+        alt="Hero"
+        class="w-full h-64 object-scale-down"
+        loading="lazy"
+      />
+    </div>
+    <footer
+      class="bg-[var(--color-secondary)] border-t border-[var(--color-primary)] text-[var(--color-bg)] text-xs px-3 py-3 mt-2 mb-0"
+    >
+      &copy; 2025 Natural Touch. All rights reserved.
+    </footer>
+  </div>
+</nav>
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const servicesButton = document.getElementById("services-button");
+    const servicesMenu = document.getElementById("services-menu");
+    const dropdownTick = document.getElementById("dropdown-tick");
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (servicesButton && servicesMenu && dropdownTick) {
+      servicesButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isHidden = servicesMenu.classList.toggle("hidden");
+        servicesButton.setAttribute("aria-expanded", (!isHidden).toString());
+        if (!isHidden) {
+          dropdownTick.classList.remove("text-transparent");
+          dropdownTick.classList.add("text-[var(--color-success)]");
+        } else {
+          dropdownTick.classList.add("text-transparent");
+          dropdownTick.classList.remove("text-[var(--color-success)]");
+        }
+      });
+
+      document.addEventListener("click", () => {
+        if (!servicesMenu.classList.contains("hidden")) {
+          servicesMenu.classList.add("hidden");
+          servicesButton.setAttribute("aria-expanded", "false");
+          dropdownTick.classList.add("text-transparent");
+          dropdownTick.classList.remove("text-[var(--color-success)]");
+        }
+      });
+    }
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", () => {
+        const isHidden = mobileMenu.classList.toggle("hidden");
+        menuButton.setAttribute("aria-expanded", (!isHidden).toString());
+      });
+    }
+  });
+</script>
