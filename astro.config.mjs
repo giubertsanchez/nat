@@ -4,8 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://giubertphone.github.io',
-  base: 'nat',
+  site: 'https://giubertsanchez.github.io',
+  base:"nat"
+  
 
   // For GitHub Pages deployment
   // This is the repository name where the site will be hosted
