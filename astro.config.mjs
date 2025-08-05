@@ -10,7 +10,5 @@ import vercel from '@astrojs/vercel';
   },
 
   output: 'static',
-  adapter: vercel({
-    imageService: true,
-  }),
+  adapter: vercel(),
 });
